@@ -38,13 +38,17 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     font-size: 14px;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .App {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Header modernisé */

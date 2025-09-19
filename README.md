@@ -73,10 +73,13 @@ Vous pouvez modifier ces informations dans l'onglet "👥 Employés".
 
 ## 🎮 Utilisation
 
-1. **Démarrez par l'onglet "👥 Employés"** pour vérifier/ajuster votre équipe
-2. **Ajoutez vos premiers projets** dans l'onglet "📋 Projets"
-3. **Consultez le dashboard** pour voir les analyses et alertes
-4. **Ajustez les estimations** au fur et à mesure selon vos retours d'expérience
+Dans la version simplifiée actuellement active, l'écran principal est un planificateur très simple (SimplePlanner) pensé pour être manipulé facilement.
+
+1. Réglez la capacité totale/semaine (heures) en haut à gauche.
+2. Ajoutez des jobs avec un nom, des heures et (optionnel) une compétence principale.
+3. Modifiez les jobs directement dans la table (nom, heures, compétence) ou supprimez-les.
+4. La prévision à 12 semaines montre en couleurs quand vous êtes sous-capacité (vert), à capacité (jaune) ou en surcharge (rouge).
+5. Le bouton "Remplacer Projets avec cette liste" écrase vos projets détaillés avec des projets simples basés sur la liste courante.
 
 ## 🤝 Évolutions Futures
 

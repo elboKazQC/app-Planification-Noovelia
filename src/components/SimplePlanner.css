@@ -1,0 +1,227 @@
+/* Interface style Excel/tableur */
+.sp-container {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.sp-header {
+    background: #2b5ce6;
+    color: white;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sp-toolbar {
+    background: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    padding: 8px 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.sp-content {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+}
+
+.sp-section {
+    background: white;
+    margin: 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sp-section-header {
+    background: #e9ecef;
+    padding: 8px 20px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Style Excel pour les inputs */
+.sp-input {
+    border: 1px solid #ced4da;
+    padding: 6px 8px;
+    font-size: 13px;
+    background: white;
+    border-radius: 0;
+    min-width: 80px;
+}
+
+.sp-input:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+/* Boutons style Office */
+.sp-btn {
+    background: #0d6efd;
+    color: white;
+    border: 1px solid #0d6efd;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.sp-btn:hover {
+    background: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+.sp-btn.secondary {
+    background: #6c757d;
+    border-color: #6c757d;
+}
+
+.sp-btn.secondary:hover {
+    background: #5c636a;
+    border-color: #5c636a;
+}
+
+.sp-btn.danger {
+    background: #dc3545;
+    border-color: #dc3545;
+}
+
+.sp-btn.danger:hover {
+    background: #c82333;
+    border-color: #c82333;
+}
+
+/* Table style Excel */
+.sp-excel-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: white;
+}
+
+.sp-excel-table th {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #495057;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.sp-excel-table td {
+    border: 1px solid #dee2e6;
+    padding: 4px 8px;
+    background: white;
+}
+
+.sp-excel-table tr:hover {
+    background: #f8f9fa;
+}
+
+.sp-excel-table input,
+.sp-excel-table select {
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.sp-excel-table input:focus,
+.sp-excel-table select:focus {
+    background: white;
+    border: 2px solid #0d6efd;
+    border-radius: 2px;
+}
+
+/* Grille de prévision style Excel */
+.sp-forecast-container {
+    padding: 20px;
+    background: white;
+}
+
+.sp-forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
+    background: #dee2e6;
+    border: 2px solid #dee2e6;
+}
+
+.sp-forecast-cell {
+    background: white;
+    height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-forecast-header {
+    background: #f8f9fa;
+    padding: 4px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.sp-forecast-bar {
+    flex: 1;
+    position: relative;
+    margin: 2px;
+}
+
+.sp-forecast-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: height 0.3s ease;
+}
+
+.sp-settings-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 20px;
+}
+
+.sp-settings-label {
+    font-size: 13px;
+    color: #495057;
+    font-weight: 500;
+}
+
+.sp-legend {
+    font-size: 12px;
+    color: #6c757d;
+    padding: 8px 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+.sp-status-good {
+    color: #198754;
+}
+
+.sp-status-warning {
+    color: #ffc107;
+}
+
+.sp-status-danger {
+    color: #dc3545;
+}

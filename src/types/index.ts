@@ -178,3 +178,82 @@ export interface TemplateProjet {
     description: string;
     etapes: TemplateEtape[];
 }
+
+// ===== TYPES POUR LE KANBAN BOARD =====
+
+// Types de véhicules et accessoires spécifiques
+export type TypeVehicule =
+    | 'AMR PL'
+    | 'AMR FL'
+    | 'AMR Uniboard'
+    | 'AMR R&D'
+    | 'Accessoire Uniboard'
+    | 'Accessoire CSTE2010E';
+
+// Colonnes du Kanban dans l'ordre du workflow
+export type KanbanColumn =
+    | 'nouveau_projet'
+    | 'achat'
+    | 'soudage'
+    | 'machinage'
+    | 'peinture'
+    | 'assemblage'
+    | 'electrique'
+    | 'test'
+    | 'termine';
+
+// Niveaux de priorité
+export type PrioriteNiveau = 'basse' | 'normale' | 'haute' | 'urgente';
+
+// Historique des mouvements entre colonnes
+export interface MouvementHistoire {
+    id: string;
+    projetId: string;
+    colonneSource: KanbanColumn | null; // null pour création initiale
+    colonneDestination: KanbanColumn;
+    dateMovement: Date;
+    utilisateur?: string;
+    commentaire?: string;
+}
+
+// Projet Kanban avec informations spécifiques
+export interface ProjetKanban {
+    id: string;
+    numero: string; // # du projet (ex: "AMR-2025-001")
+    nom: string;
+    typeVehicule: TypeVehicule;
+    client: string;
+    priorite: PrioriteNiveau;
+    colonneActuelle: KanbanColumn;
+    dateCreation: Date;
+    dateModification: Date;
+    description?: string;
+    notes?: string;
+    historiqueMovements: MouvementHistoire[];
+    estArchive: boolean; // true quand terminé et archivé
+    dateArchivage?: Date;
+}
+
+// État du Kanban Board
+export interface KanbanState {
+    projets: ProjetKanban[];
+    projetsArchives: ProjetKanban[];
+    colonnes: {
+        [key in KanbanColumn]: {
+            id: KanbanColumn;
+            titre: string;
+            couleur: string;
+            projets: string[]; // IDs des projets dans cette colonne
+        }
+    };
+}
+
+// Configuration des colonnes avec metadata
+export interface ConfigurationColonne {
+    id: KanbanColumn;
+    titre: string;
+    couleur: string;
+    icone?: string;
+    description?: string;
+    ordre: number;
+}

@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Projet, Employe, TemplateProjet, StatutTache, MaterielProjet } from './types';
-import GestionEmployes from './components/GestionEmployes';
-import GestionProjets from './components/GestionProjets';
-import Dashboard from './components/Dashboard';
-import EtatAtelier from './components/EtatAtelier';
+import SimplePlanner from './components/SimplePlanner';
 import './App.css';
 
 function App() {
-    const [activeTab, setActiveTab] = useState<'atelier' | 'dashboard' | 'employes' | 'projets' | 'templates'>('atelier');
-    const [employes, setEmployes] = useState<Employe[]>(() => {
+    // Simplified app: always show SimplePlanner. Keep state loaders to reuse existing data seeds.
+    const [employes] = useState<Employe[]>(() => {
         const savedEmployes = localStorage.getItem('noovelia-employes');
         if (savedEmployes) {
             return JSON.parse(savedEmployes);
@@ -454,66 +451,22 @@ function App() {
         }
     });
 
-    // Sauvegarde automatique des employés
-    useEffect(() => {
-        localStorage.setItem('noovelia-employes', JSON.stringify(employes));
-    }, [employes]);
+    // Plus de sauvegarde automatique des employés dans la version simplifiée
 
     // Sauvegarde automatique des projets (SANS mise à jour automatique des statuts pour éviter les boucles)
     useEffect(() => {
         localStorage.setItem('noovelia-projets', JSON.stringify(projets));
     }, [projets]);
 
+    // Kanban archivé non utilisé dans la version simplifiée
+
     return (
         <div className="App">
             <header className="header">
-                <h1>📊 Planification Noovelia</h1>
-                <nav className="nav-tabs">
-                    <button
-                        className={`nav-tab ${activeTab === 'atelier' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('atelier')}
-                    >
-                        🔧 État Atelier
-                    </button>
-                    <button
-                        className={`nav-tab ${activeTab === 'dashboard' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('dashboard')}
-                    >
-                        📊 Planification
-                    </button>
-                    <button
-                        className={`nav-tab ${activeTab === 'employes' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('employes')}
-                    >
-                        👥 Employés
-                    </button>
-                    <button
-                        className={`nav-tab ${activeTab === 'projets' ? 'active' : ''}`}
-                        onClick={() => setActiveTab('projets')}
-                    >
-                        📋 Projets
-                    </button>
-                </nav>
+                <h1>� Planificateur simplifié</h1>
             </header>
-
             <main className="main-content">
-                {activeTab === 'atelier' && (
-                    <EtatAtelier employes={employes} projets={projets} />
-                )}
-                {activeTab === 'dashboard' && (
-                    <Dashboard employes={employes} projets={projets} setProjets={setProjets} />
-                )}
-                {activeTab === 'employes' && (
-                    <GestionEmployes employes={employes} setEmployes={setEmployes} />
-                )}
-                {activeTab === 'projets' && (
-                    <GestionProjets
-                        projets={projets}
-                        setProjets={setProjets}
-                        employes={employes}
-                        templates={templates}
-                    />
-                )}
+                <SimplePlanner employes={employes} projets={projets} setProjets={setProjets} />
             </main>
         </div>
     );
