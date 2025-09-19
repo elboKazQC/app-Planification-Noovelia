@@ -1,0 +1,378 @@
+/* Calendrier des Achats */
+.calendrier-achats {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête du calendrier */
+.calendrier-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.nav-mois {
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-mois:hover {
+    background: #1565c0;
+    transform: scale(1.1);
+}
+
+.titre-mois {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+/* Jours de la semaine */
+.jours-semaine {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #e0e0e0;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: 1px;
+}
+
+.jour-semaine {
+    background: #f8f9fa;
+    padding: 12px 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #546e7a;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Grille du calendrier */
+.grille-calendrier {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    background: #e0e0e0;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+.jour-calendrier {
+    background: white;
+    min-height: 100px;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.jour-calendrier:hover {
+    background: #f8f9fa;
+    transform: scale(1.02);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.jour-calendrier.hors-mois {
+    background: #fafafa;
+    opacity: 0.4;
+}
+
+.jour-calendrier.aujourdhui {
+    background: #e3f2fd;
+    border: 2px solid #1976d2;
+}
+
+.jour-calendrier.avec-evenement {
+    background: #fff3e0;
+}
+
+.numero-jour {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    line-height: 1;
+}
+
+.jour-calendrier.aujourdhui .numero-jour {
+    color: #1976d2;
+    font-weight: 700;
+}
+
+.jour-calendrier.hors-mois .numero-jour {
+    color: #bbb;
+}
+
+/* Événements */
+.evenements {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.evenement {
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid;
+}
+
+.evenement:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.evenement.critique {
+    background: #ffebee;
+    color: #c62828;
+    border-left-color: #d32f2f;
+}
+
+.evenement.attention {
+    background: #fff3e0;
+    color: #ef6c00;
+    border-left-color: #f57c00;
+}
+
+.evenement.normal {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-left-color: #388e3c;
+}
+
+.materiel-nom {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.evenement-plus {
+    background: #e0e0e0;
+    color: #666;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 0.6rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Légende */
+.calendrier-legende {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.calendrier-legende h4 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.legende-items {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legende-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #546e7a;
+}
+
+.legende-item .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.legende-item .dot.critique {
+    background: #d32f2f;
+}
+
+.legende-item .dot.attention {
+    background: #f57c00;
+}
+
+.legende-item .dot.normal {
+    background: #388e3c;
+}
+
+/* Prochains achats */
+.prochains-achats {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.prochains-achats h4 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+.prochain-achat {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease;
+}
+
+.prochain-achat:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.achat-date {
+    min-width: 120px;
+    color: #1976d2;
+    font-size: 0.9rem;
+}
+
+.achat-materiels {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: #f0f0f0;
+    color: #666;
+    border: 1px solid #e0e0e0;
+}
+
+.badge.critique {
+    background: #ffebee;
+    color: #c62828;
+    border-color: #ffcdd2;
+}
+
+.badge.attention {
+    background: #fff3e0;
+    color: #ef6c00;
+    border-color: #ffcc02;
+}
+
+.badge.normal {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-color: #c8e6c9;
+}
+
+.aucun-achat {
+    color: #388e3c;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem;
+    background: #e8f5e8;
+    border-radius: 6px;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .calendrier-achats {
+        padding: 1rem;
+    }
+
+    .calendrier-header {
+        margin-bottom: 1rem;
+    }
+
+    .titre-mois {
+        font-size: 1.2rem;
+    }
+
+    .jour-calendrier {
+        min-height: 80px;
+        padding: 6px;
+    }
+
+    .evenement {
+        font-size: 0.65rem;
+        padding: 1px 3px;
+    }
+
+    .legende-items {
+        gap: 1rem;
+    }
+
+    .prochain-achat {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .achat-date {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .jour-calendrier {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .numero-jour {
+        font-size: 0.8rem;
+    }
+
+    .evenement {
+        font-size: 0.6rem;
+        padding: 1px 2px;
+    }
+
+    .nav-mois {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+
+    .titre-mois {
+        font-size: 1.1rem;
+    }
+}

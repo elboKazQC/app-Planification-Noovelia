@@ -1,0 +1,426 @@
+/* Planification des Achats */
+.planification-achats {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.header-achats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.header-achats h2 {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.stats-achats {
+    display: flex;
+    gap: 1rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    min-width: 70px;
+}
+
+.stat-item.critique {
+    background-color: #fee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+.stat-item.attention {
+    background-color: #fff3e0;
+    color: #f57c00;
+    border: 1px solid #ffcc02;
+}
+
+.stat-item.normal {
+    background-color: #f1f8e9;
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+/* Onglets */
+.onglets-achats {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.onglet {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.onglet:hover {
+    background: #f5f5f5;
+    border-color: #d0d0d0;
+}
+
+.onglet.actif {
+    background: #1976d2;
+    color: white;
+    border-color: #1976d2;
+}
+
+/* Alertes */
+.alertes-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.alertes-groupe h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alerte-card {
+    border-left: 4px solid;
+    padding: 1rem;
+    background: #fafafa;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.alerte-card:hover {
+    transform: translateX(2px);
+}
+
+.alerte-card.critique {
+    border-left-color: #d32f2f;
+    background: #ffebee;
+}
+
+.alerte-card.attention {
+    border-left-color: #f57c00;
+    background: #fff3e0;
+}
+
+.alerte-card.info {
+    border-left-color: #1976d2;
+    background: #e3f2fd;
+}
+
+.alerte-card.voir-plus {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+.alerte-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.alerte-titre {
+    font-weight: 500;
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.alerte-echeance {
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+
+.alerte-action {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.aucune-alerte {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #666;
+}
+
+.aucune-alerte .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Planning Tableau */
+.planning-section {
+    overflow-x: auto;
+}
+
+.planning-tableau {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr 1fr 1fr;
+    gap: 1rem;
+    min-width: 900px;
+}
+
+.tableau-header {
+    display: contents;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.tableau-header>div {
+    padding: 1rem 0.5rem;
+    border-bottom: 2px solid #e0e0e0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tableau-ligne {
+    display: contents;
+}
+
+.tableau-ligne>div {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tableau-ligne.critique>div {
+    background: #ffebee;
+}
+
+.tableau-ligne.attention>div {
+    background: #fff3e0;
+}
+
+.tableau-ligne.normal>div {
+    background: #f9f9f9;
+}
+
+.materiel-info strong {
+    color: #2c3e50;
+    margin-bottom: 0.2rem;
+}
+
+.materiel-info small {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.projet-info strong {
+    color: #1976d2;
+    margin-bottom: 0.2rem;
+}
+
+.projet-info small {
+    color: #666;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+
+.stock-bas {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.stock-ok {
+    color: #388e3c;
+}
+
+.jours-restants {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.badge-statut {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.badge-statut.disponible {
+    background: #c8e6c9;
+    color: #2e7d32;
+}
+
+.badge-statut.a_commander {
+    background: #ffcdd2;
+    color: #c62828;
+}
+
+.badge-statut.commande {
+    background: #fff3e0;
+    color: #ef6c00;
+}
+
+.badge-statut.en_route {
+    background: #e1f5fe;
+    color: #0277bd;
+}
+
+.badge-statut.recu {
+    background: #c8e6c9;
+    color: #2e7d32;
+}
+
+.tableau-ligne.vide>div {
+    background: #fafafa;
+    color: #666;
+}
+
+/* Calendrier */
+.calendrier-section {
+    text-align: center;
+    padding: 2rem;
+}
+
+.calendrier-info h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.calendrier-preview {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 2px dashed #ddd;
+}
+
+.mois-preview h4 {
+    margin-bottom: 1rem;
+    color: #1976d2;
+}
+
+.jours-preview {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.jour {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.jour:hover {
+    background: #e3f2fd;
+}
+
+.jour.aujourd-hui {
+    background: #1976d2;
+    color: white;
+    font-weight: bold;
+}
+
+.jour.commande {
+    background: #ffcdd2;
+    color: #c62828;
+    font-weight: bold;
+}
+
+.legende {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.9rem;
+}
+
+.legende-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot.aujourd-hui {
+    background: #1976d2;
+}
+
+.dot.commande {
+    background: #c62828;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .planning-tableau {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-achats {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+
+    .stats-achats {
+        justify-content: space-around;
+    }
+
+    .onglets-achats {
+        flex-direction: column;
+    }
+
+    .planning-section {
+        overflow-x: scroll;
+    }
+
+    .alerte-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .alerte-echeance {
+        align-self: flex-start;
+    }
+}
